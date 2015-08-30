@@ -18,13 +18,9 @@ func TestBitSetNew(t *testing.T) {
 
 	str := b.ToHexString()
 
-	/*
-		if str != "0f" {
-			t.Errorf("Set then ToHexString failed")
-		}
-	*/
-
-	fmt.Printf("Set then ToHexString returned %s\n", str)
+	if str != "0f" {
+		t.Errorf("Set then ToHexString failed should be 0f")
+	}
 
 }
 
@@ -34,9 +30,39 @@ func TestBitSetToHexString(t *testing.T) {
 	str := b.ToHexString()
 
 	if str != "0f" {
-		t.Errorf("ToHexString failed")
+		t.Errorf("ToHexString failed should be 0f")
 	}
 
-	fmt.Printf("ToHexString returned %s\n", str)
+}
+
+func TestBitSetFromHexString(t *testing.T) {
+
+	b := New(0)
+
+	err := b.FromHexString("0f")
+
+	if err != nil {
+		fmt.Printf("error %s\n", err)
+		t.Errorf("FromHexString failed")
+	}
+
+	str := b.ToHexString()
+
+	if str != "0f" {
+		t.Errorf("the FromHexString should equal ToHexString of 0f")
+
+	}
+
+}
+
+func TestBitSetGet(t *testing.T) {
+
+	b := New(8)
+
+	bit := b.Get(3)
+
+	if bit != 1 {
+		t.Errorf("Get failed should have returned 1 for 3rd bit in zero based")
+	}
 
 }

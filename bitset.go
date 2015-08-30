@@ -57,4 +57,10 @@ func (b *BitSet) Set(i int64) {
 
 }
 
+func (b *BitSet) Get(i int) uint {
+
+	return b.Int.Bit(i)
+
+}
+
 // return 0, errors.New("Unmarshalling error: type mismatch")
