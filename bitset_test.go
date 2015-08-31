@@ -16,7 +16,7 @@ func TestBitSetNew(t *testing.T) {
 
 	b.Set(15)
 
-	str := b.ToHexString()
+	str := b.String()
 
 	if str != "0f" {
 		t.Errorf("Set then ToHexString failed should be 0f")

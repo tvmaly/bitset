@@ -45,6 +45,12 @@ func (b *BitSet) FromHexString(hexstr string) error {
 	return nil
 }
 
+func (b *BitSet) String() string {
+
+	return b.ToHexString()
+
+}
+
 func (b *BitSet) ToHexString() string {
 
 	return fmt.Sprintf("%x", b.Bytes())
