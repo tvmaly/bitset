@@ -20,8 +20,6 @@ import (
 	"errors"
 	"fmt"
 	"math/big"
-	//"strconv"
-	//"strings"
 )
 
 type BitSet struct {
@@ -63,10 +61,16 @@ func (b *BitSet) Set(i int64) {
 
 }
 
+func (b *BitSet) SetBit(i int64) {
+	b.Int = b.Int.SetBit(b.Int, int(i), 1)
+}
+
+func (b *BitSet) UnSetBit(i int64) {
+	b.Int = b.Int.SetBit(b.Int, int(i), 0)
+}
+
 func (b *BitSet) Get(i int) uint {
 
 	return b.Int.Bit(i)
 
 }
-
-// return 0, errors.New("Unmarshalling error: type mismatch")

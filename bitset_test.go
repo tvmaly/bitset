@@ -66,3 +66,40 @@ func TestBitSetGet(t *testing.T) {
 	}
 
 }
+
+func TestTwoBits(t *testing.T) {
+
+	b := New(0)
+
+	b.SetBit(2)
+	b.SetBit(5)
+
+	str := b.ToHexString()
+
+	if str != "24" {
+		t.Errorf("the ToHexString should return 07")
+
+	}
+
+	bit0 := b.Get(0)
+	bit1 := b.Get(1)
+	bit2 := b.Get(2)
+	bit5 := b.Get(5)
+
+	if bit0 != 0 {
+		fmt.Println("zero bit not zero!")
+		t.Errorf("Get failed should have returned 0 for zero bit in 07 in zero based")
+	}
+	if bit1 != 0 {
+		fmt.Println("first bit not zero!")
+		t.Errorf("Get failed should have returned 0 for first bit in 07 in zero based")
+	}
+	if bit2 != 1 {
+		fmt.Println("second bit not one!")
+		t.Errorf("Get failed should have returned 1 for second bit in 07 in zero based")
+	}
+	if bit5 != 1 {
+		fmt.Println("fifth bit not one!")
+		t.Errorf("Get failed should have returned 1 for fifth bit in 07 in zero based")
+	}
+}
