@@ -1,4 +1,4 @@
-// Copyright 2015 Tyson Maly. All rights reserved.
+// Copyright 2016 Tyson Maly. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -32,6 +32,27 @@ func TestBitSetToHexString(t *testing.T) {
 	if str != "0f" {
 		t.Errorf("ToHexString failed should be 0f")
 	}
+
+}
+
+func TestBitInt64(t *testing.T) {
+
+	b := New(0)
+
+	err := b.FromHexString("0f")
+
+	if err != nil {
+		fmt.Printf("error %s\n", err)
+		t.Errorf("FromHexString failed")
+	}
+
+	i := b.Int64()
+
+	if i != 15 {
+		t.Errorf("the Int64 should return int64 representation 15")
+	}
+
+	fmt.Printf("Int is %d\n", i)
 
 }
 
