@@ -35,6 +35,18 @@ func TestBitSetToHexString(t *testing.T) {
 
 }
 
+func TestBitSetToInt(t *testing.T) {
+
+	b := New(15)
+
+	bi := b.ToInt()
+
+	if bi != 15 {
+		t.Errorf("ToInt failed should be 15")
+	}
+
+}
+
 func TestBitInt64(t *testing.T) {
 
 	b := New(0)

@@ -61,6 +61,13 @@ func (b *BitSet) ToHexString() string {
 
 }
 
+// ToInt() return int version if possible
+func (b *BitSet) ToInt() int {
+
+	return int(b.Int64())
+
+}
+
 // Set(i int64) sets the corresponding set of bits by ORing the decimal value with the set
 func (b *BitSet) Set(i int64) {
 
